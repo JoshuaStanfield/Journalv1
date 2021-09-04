@@ -12,8 +12,8 @@ class EntryController {
     // MARK: - CRUD Functions
     
     ///Create an Entry
-    static func createEntryWith(title: String, body: String, journal: Journal) {
-        let newEntry = Entry(title: title, body: body)
+    static func createEntryWith(title: String, body: String, timestamp: Date, journal: Journal) {
+        let newEntry = Entry(title: title, body: body, timestamp: timestamp)
         JournalCountroller.shared.addEntryTo(journal: journal, entry: newEntry)
     }
     
@@ -23,9 +23,17 @@ class EntryController {
     }
     
     ///Update an Entry
-    static func update(entry: Entry, title: String, body: String) {
+    static func update(entry: Entry, title: String, body: String, timestamp: Date) {
         entry.title = title
         entry.body = body
+        entry.timestamp = timestamp
         JournalCountroller.shared.saveToPersistenceStore()
+    }
+    
+    ///Format the date.
+    static func getFormattedDate(date: Date, format: String) -> String {
+            let dateformat = DateFormatter()
+            dateformat.dateFormat = format
+            return dateformat.string(from: date)
     }
 }

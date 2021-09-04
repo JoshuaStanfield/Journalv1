@@ -44,10 +44,10 @@ class EntryListTableViewController: UITableViewController {
         
         guard let entry = journal?.entries[indexPath.row] else { return UITableViewCell() }
         
-        let timestamp = getFormattedDate(date: Date(), format: "dd-MMM-yyyy")
-        
+        let timestamp = EntryController.getFormattedDate(date: entry.timestamp, format: "MMM dd, yyyy | hh:mm a")
+                
         cell.textLabel?.text = entry.title
-        cell.detailTextLabel?.text = timestamp
+        cell.detailTextLabel?.text = "\(timestamp)"
 
         return cell
     }
@@ -73,14 +73,6 @@ class EntryListTableViewController: UITableViewController {
             
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
-    }
-    
-    // MARK: - Functions
-    ///Set up the date and time.
-    func getFormattedDate(date: Date, format: String) -> String {
-            let dateformat = DateFormatter()
-            dateformat.dateFormat = format
-            return dateformat.string(from: date)
     }
 
     // MARK: - Navigation

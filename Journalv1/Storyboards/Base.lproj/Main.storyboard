@@ -22,7 +22,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="AIS-Gj-E9p">
                                         <rect key="frame" x="41.5" y="12" width="331" height="76"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter journal title..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xjb-0A-dtE">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a title..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xjb-0A-dtE">
                                                 <rect key="frame" x="0.0" y="0.0" width="331" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -97,6 +97,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="yTv-VY-4OR"/>
                     <connections>
+                        <outlet property="createJournalButton" destination="2dX-Na-TRf" id="bHP-yK-T1s"/>
                         <outlet property="journalListTableView" destination="Cuq-7c-cOh" id="Jxz-mM-uEi"/>
                         <outlet property="journalTitleTextField" destination="xjb-0A-dtE" id="mEi-vb-kE1"/>
                     </connections>
@@ -171,6 +172,9 @@
                                 <rect key="frame" x="8" y="177" width="398" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="46c-si-K7b" id="qDE-W4-q2o"/>
+                                </connections>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OTL-SK-otg">
                                 <rect key="frame" x="8" y="227" width="398" height="219"/>
